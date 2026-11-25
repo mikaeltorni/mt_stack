@@ -8,7 +8,7 @@ import tempfile
 root = Path(__file__).resolve().parents[1]
 assert not (root/'repositories').exists(), 'hub must not embed project copies'
 rows = json.loads((root/'repositories.json').read_text())
-assert len(rows) == 5 and all(row['visibility']=='public' for row in rows)
+assert len(rows) == 12 and all(row['visibility']=='public' for row in rows)
 with tempfile.TemporaryDirectory() as directory:
     temporary = Path(directory)
     projects = temporary/'projects with spaces'

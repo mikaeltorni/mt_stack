@@ -108,17 +108,21 @@ def parse_arguments(arguments):
 def load_manifest(workstation, projects):
     """Load and validate the selected repository profile.
     Parameters: workstation - whether to use existing workstation checkouts; projects - resolved projects parent.
-    Returns: ordered and validated repository metadata dictionaries.
+    Returns: ordered validated metadata, including which optional workstation owners may be fetched.
     """
     print(f'workstation={workstation!r} projects={projects!r}', file=sys.stderr)
     result = json.loads((ROOT / ('workstation.json' if workstation else 'repositories.json')).read_text())
     if workstation:
+        linked = json.loads((ROOT / 'repositories.json').read_text())
+        validate_manifest(linked, False)
+        public_owners = {row['name'] for row in linked}
         for row in result:
             row['source'] = 'https://github.com/mikaeltorni/' + row['name']
             row['installer'] = 'install.sh'
             row['kind'] = 'local'
             row['default'] = bool(row['default_components'])
             row['default_components'] = tuple(row['default_components'])
+            row['fetch_optional'] = row['name'] in public_owners
     validate_manifest(result, workstation)
     if workstation:
         for row in result:
@@ -403,14 +407,15 @@ def aggregate_checkouts(manifest, projects, offline, dry_run):
     """Resolve aggregate menu and query inputs in profile order.
 
     Parameters: manifest - validated owner profile; projects - external checkout parent; offline - forbid clones; dry_run - preview missing public checkouts.
-    Returns: ordered pairs of owner metadata and checkout paths for available optional and required owners.
+    Returns: ordered owner and path pairs for required owners, available optional owners, and optional public owners when fetching.
     """
     print(f'manifest={manifest!r} projects={projects!r} offline={offline!r} dry_run={dry_run!r}', file=sys.stderr)
     require_external_path(projects)
     result = []
     for row in manifest:
         if row['kind'] == 'local' and not row['default'] and not (projects / row['name']).exists():
-            continue
+            if offline or not row['fetch_optional']:
+                continue
         checkout = ensure_checkout(row, projects, offline, dry_run)
         result.append((row, checkout))
     print(result, file=sys.stderr)

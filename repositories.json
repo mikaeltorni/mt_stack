@@ -58,5 +58,89 @@
     "default": false,
     "category": "linux-desktop",
     "installer": "install.sh"
+  },
+  {
+    "name": "linux_installation_scripts_functions",
+    "purpose": "Shared installer menus, runtime and module deployment",
+    "source": "https://github.com/mikaeltorni/linux_installation_scripts_functions",
+    "github_id": "R_kgDOS_sumg",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "installer-support",
+    "installer": "install.sh"
+  },
+  {
+    "name": "claude_code_status_bar",
+    "purpose": "Terminal status lines for coding-agent CLIs",
+    "source": "https://github.com/mikaeltorni/claude_code_status_bar",
+    "github_id": "R_kgDOS26I2A",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-development",
+    "installer": "install.sh"
+  },
+  {
+    "name": "linux_taskbar_agentic_coding_cli_status_bar",
+    "purpose": "GNOME panel for coding-agent usage and limits",
+    "source": "https://github.com/mikaeltorni/linux_taskbar_agentic_coding_cli_status_bar",
+    "github_id": "R_kgDOTMf8nw",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-desktop",
+    "installer": "install.sh"
+  },
+  {
+    "name": "linux_kitty_terminal_description",
+    "purpose": "Kitty title summaries and commit-subject generation",
+    "source": "https://github.com/mikaeltorni/linux_kitty_terminal_description",
+    "github_id": "R_kgDOS_hlpQ",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-development",
+    "installer": "install.sh"
+  },
+  {
+    "name": "linux_lmstudio_local_agents",
+    "purpose": "LM Studio app, local serving and model selection",
+    "source": "https://github.com/mikaeltorni/linux_lmstudio_local_agents",
+    "github_id": "R_kgDOTApu4g",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-development",
+    "installer": "install.sh"
+  },
+  {
+    "name": "linux_codex_claude_code_tts_announcements",
+    "purpose": "Standalone speech engine and coding-agent notifications",
+    "source": "https://github.com/mikaeltorni/linux_codex_claude_code_tts_announcements",
+    "github_id": "R_kgDOS_lGWA",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-development",
+    "installer": "install.sh"
+  },
+  {
+    "name": "linux_luks_configuration",
+    "purpose": "Opt-in LUKS tools and encrypted-volume provisioning",
+    "source": "https://github.com/mikaeltorni/linux_luks_configuration",
+    "github_id": "R_kgDOTIZmKw",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-desktop",
+    "installer": "install.sh"
   }
 ]

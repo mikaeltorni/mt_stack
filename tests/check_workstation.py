@@ -10,6 +10,15 @@ base = 'linux_installations_setup'
 desktop = 'linux_configuration_setup'
 base_components = 'git,curl,gpg,jq,tmux,gnome_tooling,build_tools,python_runtime,desktop_utils,terminal'
 desktop_components = 'clock_calendar,dark_mode,terminal_theme,kitty_defaults,tmux_defaults'
+new_owners = (
+    'linux_installation_scripts_functions',
+    'claude_code_status_bar',
+    'linux_taskbar_agentic_coding_cli_status_bar',
+    'linux_kitty_terminal_description',
+    'linux_lmstudio_local_agents',
+    'linux_codex_claude_code_tts_announcements',
+    'linux_luks_configuration',
+)
 expected = (
     (base, base_components),
     (desktop, desktop_components),
@@ -26,6 +35,7 @@ expected = (
     ('linux_window_selection_indicator', 'outline'),
     ('linux_codex_claude_code_setup', ''),
     ('agent_command_center', ''),
+    *((owner, '') for owner in new_owners),
 )
 
 with tempfile.TemporaryDirectory() as directory:
@@ -47,6 +57,9 @@ with tempfile.TemporaryDirectory() as directory:
     assert [line.split('\t')[0] for line in listed.stdout.splitlines()] == [owner for owner, _ in expected], listed.stdout
     public = subprocess.run(command + ['--list'], env=environment, text=True, capture_output=True, timeout=10)
     assert public.returncode == 0 and base not in public.stdout and desktop not in public.stdout, public.stdout
+    public_names = {line.split('\t')[0] for line in public.stdout.splitlines()}
+    assert set(new_owners) <= public_names
+    assert 'agent_command_center' not in public_names and 'phrase_automation' not in public_names
     missing = subprocess.run(command + ['--workstation', '--default', '--dry-run'], env=environment, text=True, capture_output=True, timeout=10)
     assert missing.returncode == 2 and base in missing.stderr and not projects.exists(), missing.stderr
     for owner, components in expected:
@@ -119,4 +132,32 @@ esac
         'linux_codex_claude_code_setup no 1 --default',
         'agent_command_center no 1 --default',
     ], calls.read_text()
+    names = ','.join(new_owners)
+    for flags in ([], ['--workstation']):
+        selected = subprocess.run(command + flags + ['--select', names, '--offline'], env=environment, text=True, capture_output=True, timeout=10)
+        assert selected.returncode == 0, selected.stderr
+        assert calls.read_text().splitlines()[-len(new_owners):] == [
+            f'{owner} no 1 --default' for owner in new_owners
+        ]
+    assert all(defaults[owner]['enabled'] == 0 for owner in new_owners)
+    fetch_owner = new_owners[0]
+    seed = sandbox / 'seed'
+    (projects / fetch_owner).rename(seed)
+    (projects / 'agent_command_center').rename(sandbox / 'private-owner')
+    subprocess.run(['git', '-C', str(seed), 'add', 'install.sh'], check=True)
+    subprocess.run(['git', '-C', str(seed), '-c', 'user.name=Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'optional owner fixture'], check=True)
+    remotes = sandbox / 'remotes'
+    remotes.mkdir()
+    subprocess.run(['git', 'clone', '--bare', '-q', str(seed), str(remotes / f'{fetch_owner}.git')], check=True)
+    config = sandbox / 'gitconfig'
+    subprocess.run(['git', 'config', '--file', str(config), f'url.{remotes.as_uri()}/.insteadOf', 'https://github.com/mikaeltorni/'], check=True)
+    before = calls.read_bytes()
+    reused = subprocess.run(command + ['--workstation', '--export-selection'], env=environment, text=True, capture_output=True, timeout=10)
+    assert fetch_owner not in json.loads(reused.stdout)['repos']
+    fetched = subprocess.run(command + ['--workstation', '--fetch', '--export-selection'], env=dict(environment, GIT_CONFIG_GLOBAL=str(config)), text=True, capture_output=True, timeout=10)
+    assert fetched.returncode == 0, fetched.stderr
+    snapshot = json.loads(fetched.stdout)['repos']
+    assert snapshot[fetch_owner]['enabled'] == 0, snapshot[fetch_owner]
+    assert 'agent_command_center' not in snapshot and not (projects / 'agent_command_center').exists()
+    assert calls.read_bytes() == before
 print('PASS: workstation profile isolation, ordering, checkout validation, privilege and component dispatch')
