@@ -1,0 +1,62 @@
+[
+  {
+    "name": "programming_prompts",
+    "purpose": "Coding-agent policies, plugins and skills installed by the CLI setup",
+    "source": "https://github.com/mikaeltorni/programming_prompts",
+    "github_id": "R_kgDOOL21WQ",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": true,
+    "category": "linux-development",
+    "installer": "install.sh"
+  },
+  {
+    "name": "codex",
+    "purpose": "Public OpenAI Codex fork source and native CLI build",
+    "source": "https://github.com/mikaeltorni/codex",
+    "github_id": "R_kgDOUma1Iw",
+    "branch": "main",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-development",
+    "installer": "install.sh"
+  },
+  {
+    "name": "linux_automatic_window_tiling",
+    "purpose": "GNOME same-application automatic window tiling",
+    "source": "https://github.com/mikaeltorni/linux_automatic_window_tiling",
+    "github_id": "R_kgDOSyUGBQ",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-desktop",
+    "installer": "install.sh"
+  },
+  {
+    "name": "linux_taskbar_window_count",
+    "purpose": "GNOME app-icon window-count badges",
+    "source": "https://github.com/mikaeltorni/linux_taskbar_window_count",
+    "github_id": "R_kgDOS32qVA",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-desktop",
+    "installer": "install.sh"
+  },
+  {
+    "name": "linux_taskbar_monitor",
+    "purpose": "GNOME Resource Monitor installation and configuration",
+    "source": "https://github.com/mikaeltorni/linux_taskbar_monitor",
+    "github_id": "R_kgDOStN3Ow",
+    "branch": "master",
+    "visibility": "public",
+    "kind": "linked",
+    "default": false,
+    "category": "linux-desktop",
+    "installer": "install.sh"
+  }
+]

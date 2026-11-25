@@ -1,0 +1,92 @@
+[
+  {
+    "name": "linux_installations_setup",
+    "purpose": "Ubuntu packages and workstation prerequisites",
+    "category": "linux-desktop",
+    "default_components": ["git", "curl", "gpg", "jq", "tmux", "gnome_tooling", "build_tools", "python_runtime", "desktop_utils", "terminal"]
+  },
+  {
+    "name": "linux_configuration_setup",
+    "purpose": "GNOME, Kitty and tmux settings",
+    "category": "linux-desktop",
+    "default_components": ["clock_calendar", "dark_mode", "terminal_theme", "kitty_defaults", "tmux_defaults"]
+  },
+  {
+    "name": "linux_task_workspaces",
+    "purpose": "Named task workspaces, saved layouts and Rust bootstrap for native tools",
+    "category": "linux-desktop",
+    "default_components": ["task_workspaces"]
+  },
+  {
+    "name": "linux_active_monitor_placement",
+    "purpose": "Place new windows on the active monitor",
+    "category": "linux-desktop",
+    "default_components": ["active_monitor_placement"]
+  },
+  {
+    "name": "linux_monitor_window_hotkeys",
+    "purpose": "Monitor movement, half-tiling and workspace send-mode",
+    "category": "linux-desktop",
+    "default_components": ["monitor_window_hotkeys"]
+  },
+  {
+    "name": "linux_hotkey_setup",
+    "purpose": "Desktop, workspace and window-placement shortcuts",
+    "category": "linux-desktop",
+    "default_components": ["screenshot", "workspace_behavior", "workspace_switch_1", "workspace_switch_2", "workspace_switch_3", "workspace_switch_4", "workspace_switch_5", "workspace_switch_6", "workspace_switch_7", "workspace_switch_8", "workspace_move_modifier", "window_placement_tiling"]
+  },
+  {
+    "name": "linux_workspaces_setup",
+    "purpose": "Workspace popup and monitor hotkey integration",
+    "category": "linux-desktop",
+    "default_components": ["workspace_send_mode", "workspace_popup"]
+  },
+  {
+    "name": "linux_hotkey_window_tools",
+    "purpose": "Pointer-driven move and resize tools",
+    "category": "linux-desktop",
+    "default_components": ["move_hotkey", "resize_hotkey", "open_kitty_sort_hotkey"]
+  },
+  {
+    "name": "linux_automatic_window_tiling",
+    "purpose": "Automatic tiling of windows from the same application",
+    "category": "linux-desktop",
+    "default_components": ["keybinding", "per_app_widths", "portrait_stacking"]
+  },
+  {
+    "name": "linux_taskbar_window_count",
+    "purpose": "Window-count badges for GNOME application icons",
+    "category": "linux-desktop",
+    "default_components": ["badge_position", "count_threshold", "workspace_scope", "badge_appearance"]
+  },
+  {
+    "name": "linux_taskbar_monitor",
+    "purpose": "GNOME Resource Monitor",
+    "category": "linux-desktop",
+    "default_components": ["rm_refresh_interval", "rm_gradient_colors", "rm_vram", "rm_per_disk", "rm_panel_spacing", "rm_hide_eth_icon", "rm_process_popup"]
+  },
+  {
+    "name": "linux_programming_setup",
+    "purpose": "Cursor editor, extensions and programming skills",
+    "category": "linux-development",
+    "default_components": ["cursor", "cursor_extensions", "cursor_skills"]
+  },
+  {
+    "name": "linux_window_selection_indicator",
+    "purpose": "GNOME outline for the focused window",
+    "category": "linux-desktop",
+    "default_components": ["outline"]
+  },
+  {
+    "name": "linux_codex_claude_code_setup",
+    "purpose": "Optional coding-agent CLI setup and Codex build",
+    "category": "linux-development",
+    "default_components": []
+  },
+  {
+    "name": "agent_command_center",
+    "purpose": "Optional coding-agent monitoring and launch wrappers",
+    "category": "linux-development",
+    "default_components": []
+  }
+]

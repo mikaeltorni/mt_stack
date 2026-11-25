@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="title description">
+  <title id="title">MT Stack workstation selection</title>
+  <desc id="description">MT Stack previews the selected outline component and routes installation to a separate Linux Window Selection Indicator checkout.</desc>
+  <rect width="960" height="300" rx="22" fill="#211b28"/>
+  <rect x="40" y="44" width="460" height="212" rx="14" fill="#342b3c" stroke="#55455d"/>
+  <rect x="581" y="44" width="339" height="212" rx="14" fill="#342b3c" stroke="#55455d"/>
+  <g font-family="sans-serif">
+    <text x="64" y="91" font-size="28" font-weight="700" fill="#fff7ef">MT Stack</text>
+    <text x="64" y="124" font-size="18" fill="#e2cfe7">Select the focused-window outline</text>
+    <text x="606" y="91" font-size="22" font-weight="700" fill="#fff7ef">Separate Git checkout</text>
+    <text x="606" y="217" font-size="17" fill="#e2cfe7">Runs the owner's installer</text>
+  </g>
+  <rect x="64" y="154" width="412" height="72" rx="8" fill="#211b28"/>
+  <g font-family="monospace">
+    <text x="79" y="182" font-size="15" fill="#ffba97">--select linux_window_selection_indicator</text>
+    <text x="79" y="206" font-size="15" fill="#eadced">--dry-run</text>
+    <text x="606" y="143" font-size="14" fill="#ffba97">linux_window_selection_indicator</text>
+    <text x="606" y="173" font-size="16" fill="#eadced">install.sh --select outline</text>
+  </g>
+  <path d="M520 150h39m-10-10 10 10-10 10" stroke="#ff9a6d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
