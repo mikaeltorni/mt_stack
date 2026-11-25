@@ -1,5 +1,19 @@
 # Linked repository migration audit
 
+## Public release on 2026-11-25
+
+MT Stack was published from a reviewed source snapshot at
+[mikaeltorni/mt_stack](https://github.com/mikaeltorni/mt_stack) on `master`.
+An anonymous clone matched the reviewed source tree and contained no bundled
+owner repositories. The default workstation profile resolves 53 component IDs
+across 13 public owners. Programming Prompts is a content source consumed by
+Linux CLI Setup and Programming Setup.
+
+The records below describe earlier work and test environments. Visibility and
+revision statements in those records apply to their audit dates.
+
+## Earlier workstation and repository checks
+
 The opt-in `--workstation` profile keeps workstation owner checkouts separate
 from the public registry. It reuses external Git checkouts or, with explicit
 `--fetch`, clones them with the workstation owner's configured Git access.
