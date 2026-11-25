@@ -177,6 +177,34 @@ development owners used by `--workstation`. The
 original profile. Both profiles use external Git checkouts. Migration and
 earlier VM results are recorded in [MIGRATION.md](MIGRATION.md).
 
+The following public projects are available in both profiles. Select them
+individually in the menu or with `--select`. Each project also has its own
+standalone `install.sh`.
+
+| Project | Installs or configures |
+| --- | --- |
+| [Shared Installer Framework](https://github.com/mikaeltorni/linux_installation_scripts_functions) | Shared Bash menu, component runtime and installer helpers |
+| [Claude Code Status Bar](https://github.com/mikaeltorni/claude_code_status_bar) | Terminal status lines for coding-agent CLIs |
+| [Agentic CLI Taskbar Status](https://github.com/mikaeltorni/linux_taskbar_agentic_coding_cli_status_bar) | GNOME panel indicator for coding-agent usage and rate limits |
+| [Kitty Terminal Description](https://github.com/mikaeltorni/linux_kitty_terminal_description) | Kitty tab titles and conventional commit subject generation |
+| [LM Studio Local Agents](https://github.com/mikaeltorni/linux_lmstudio_local_agents) | LM Studio, local model serving and model selection |
+| [TTS Announcements](https://github.com/mikaeltorni/linux_codex_claude_code_tts_announcements) | Standalone speech engine and coding-agent notifications |
+| [LUKS Configuration](https://github.com/mikaeltorni/linux_luks_configuration) | LUKS tools and explicitly selected encrypted-volume provisioning |
+
+For example, list the shared framework's components, then install its menu
+and runtime:
+
+```bash
+bash install.sh --workstation --fetch --list-components linux_installation_scripts_functions
+bash install.sh --workstation --fetch --select linux_installation_scripts_functions --components menu,runtime
+```
+
+For standalone use, clone the linked project, enter its checkout, and run
+`bash install.sh --list-components` or `bash install.sh --select ID,...`.
+For LUKS tools alone, select `cryptsetup_tools`. Encrypted-volume provisioning
+requires explicitly selecting `encrypted_volume` and following the owner's
+[device and confirmation instructions](https://github.com/mikaeltorni/linux_luks_configuration#readme).
+
 ## Select components centrally or use an owner directly
 
 ```bash

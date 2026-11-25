@@ -9,6 +9,24 @@ owner repositories. The default workstation profile resolves 53 component IDs
 across 13 public owners. Programming Prompts is a content source consumed by
 Linux CLI Setup and Programming Setup.
 
+### Seven optional public owners
+
+The seven repositories below were added to both MT Stack profiles as optional
+owners with their own standalone installers. Each was cloned anonymously in
+the Ubuntu 24.04.5 guest. Their first commits contain the MIT license and a
+disclaimer, and the rewritten history retains the original commit timestamps
+and parent relationships.
+
+| Repository | Verified release revision | Ubuntu VM verification |
+| --- | --- | --- |
+| `linux_installation_scripts_functions` | `33d7d13` | Component lifecycle, installer modules and standalone deployment |
+| `claude_code_status_bar` | `9ec8bfc` | Installer and status-line tests, 24 passed and 1 skipped |
+| `linux_taskbar_agentic_coding_cli_status_bar` | `c706ddb` | 324 Rust tests and 106 installer assertions |
+| `linux_kitty_terminal_description` | `ba1fdc2` | Standalone checks and 8 tests |
+| `linux_lmstudio_local_agents` | `81fedf2` | 30 tests including the clean-user Rust cache path |
+| `linux_codex_claude_code_tts_announcements` | `55b681d` | 25 tests including the standalone install |
+| `linux_luks_configuration` | `b9c6920` | 9 checks and encrypted data preservation using a disposable VM disk |
+
 The records below describe earlier work and test environments. Visibility and
 revision statements in those records apply to their audit dates.
 
