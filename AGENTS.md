@@ -12,11 +12,9 @@ When asked to transfer another project:
 - Test external checkout discovery, clone/reuse, selection, failure behavior and the owner independently. Update README and MIGRATION; distinguish local fixes from published source.
 - Preserve the hub's MIT license and disclaimer. Never push, publish or change visibility unless explicitly requested.
 
-Publication is currently blocked by private snapshots retained in older hub
-commits (see `MIGRATION.md`). A clean current tree does not make that history
-publishable. Before a future publication, obtain explicit authorization for a
-reviewed history cleanup or clean-history release; do not rewrite history as
-routine migration maintenance.
+The public hub starts from a reviewed source snapshot. Keep the separate
+legacy private history out of this repository, including through merges or
+copied Git refs. See `MIGRATION.md` for the release record.
 
 ## New repository initialization
 
@@ -59,9 +57,6 @@ The hub owns only repository registration, cloning/reuse and installer routing.
 Existing checkouts are reused without pull, checkout, reset or merge. Public
 owner updates remain local until the user requests publication.
 
-After implementation and documentation changes are complete, maintain SEO through
-sibling private [`seo_optimization`](../seo_optimization/AGENTS.md). First read
-its `AGENTS.md`, then follow that repository's current workflow and refresh its
-evidence for this hub. Keep SEO policy and scorecards there. The hub is currently
-unpublished; do not claim a published audit or publish it implicitly. This
-maintenance workflow is separate from installation and is not an installer dependency.
+After implementation and documentation changes are complete, maintain SEO
+through the maintainer's separate `seo_optimization` repository. Read its
+`AGENTS.md`, follow its workflow, and retain SEO evidence there.

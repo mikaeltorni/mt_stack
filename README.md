@@ -1,10 +1,8 @@
 # MT Stack — Ubuntu GNOME Workstation Installer
 
-[![Last commit: 2026-10-22](docs/badges/last-commit.svg)](https://github.com/mikaeltorni/mt_stack/commits/feat/mt_stack_public-linux-stack)
-[![Commits in 30 days: 0](docs/badges/commit-activity.svg)](https://github.com/mikaeltorni/mt_stack/graphs/commit-activity)
-[![Open issues: 0](docs/badges/issues.svg)](https://github.com/mikaeltorni/mt_stack/issues)
-
-GitHub default-branch activity measured on 2026-11-25.
+[![Last commit](https://img.shields.io/github/last-commit/mikaeltorni/mt_stack)](https://github.com/mikaeltorni/mt_stack/commits/master)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/mikaeltorni/mt_stack)](https://github.com/mikaeltorni/mt_stack/graphs/commit-activity)
+[![Issues](https://img.shields.io/github/issues/mikaeltorni/mt_stack)](https://github.com/mikaeltorni/mt_stack/issues)
 
 MT Stack is an Ubuntu GNOME workstation installer that lets users select desktop tools and coding-agent setup from separate Git repositories.
 
@@ -12,7 +10,15 @@ MT Stack is an Ubuntu GNOME workstation installer that lets users select desktop
 
 ## Ubuntu GNOME workstation quickstart
 
-From a checkout of MT Stack, list the workstation owners and preview an install:
+Clone MT Stack and preview the default workstation installation:
+
+```bash
+git clone https://github.com/mikaeltorni/mt_stack.git
+cd mt_stack
+bash install.sh --workstation --fetch --default --dry-run
+```
+
+List the workstation owners or inspect just the focused-window outline:
 
 ```bash
 bash install.sh --workstation --list
@@ -27,8 +33,8 @@ complete default profile on the supported Ubuntu desktop below.
 
 ![MT Stack previews the installer command for the focused-window outline in its separate owner checkout](docs/workstation-selection.svg)
 
-The [MIT license](LICENSE.md) and [disclaimer](DISCLAIMER.md) were the first
-commit, before project content. Each linked repository keeps its own license.
+MT Stack uses the [MIT license](LICENSE.md) and includes a
+[disclaimer](DISCLAIMER.md). Each linked repository keeps its own license.
 
 ## Start
 
