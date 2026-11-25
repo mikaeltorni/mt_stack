@@ -1,4 +1,5 @@
 """Verify portable component discovery and interactive selection without deployment."""
+import errno
 import os
 from pathlib import Path
 import pty
@@ -20,8 +21,16 @@ with tempfile.TemporaryDirectory() as directory:
     assert b'Installation Components' in data, data.decode(errors='replace')
     assert b'programming_prompts' in data and b'codex' in data, data
     os.write(master, b'\r')
-    process.wait(timeout=10)
-    assert process.returncode == 0, process.returncode
+    deadline = time.monotonic() + 10
+    while process.poll() is None and time.monotonic() < deadline:
+        if select.select([master], [], [], 0.2)[0]:
+            try:
+                data += os.read(master, 65536)
+            except OSError as error:
+                if error.errno != errno.EIO:
+                    raise
+                break
+    assert process.wait(timeout=1) == 0, data.decode(errors='replace')
     os.close(master)
 result = subprocess.run(['bash', str(root/'install.sh'), '--menu', '--dry-run'], input='garbage\n0\n99\nq\n', text=True, capture_output=True)
 assert result.returncode == 2 and 'requires a terminal' in result.stderr, (result.stdout, result.stderr)

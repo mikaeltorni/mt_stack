@@ -88,5 +88,47 @@
     "purpose": "Optional coding-agent monitoring and launch wrappers",
     "category": "linux-development",
     "default_components": []
+  },
+  {
+    "name": "linux_installation_scripts_functions",
+    "purpose": "Shared installer menus, runtime and module deployment",
+    "category": "installer-support",
+    "default_components": []
+  },
+  {
+    "name": "claude_code_status_bar",
+    "purpose": "Terminal status lines for coding-agent CLIs",
+    "category": "linux-development",
+    "default_components": []
+  },
+  {
+    "name": "linux_taskbar_agentic_coding_cli_status_bar",
+    "purpose": "GNOME panel for coding-agent usage and limits",
+    "category": "linux-desktop",
+    "default_components": []
+  },
+  {
+    "name": "linux_kitty_terminal_description",
+    "purpose": "Kitty title summaries and commit-subject generation",
+    "category": "linux-development",
+    "default_components": []
+  },
+  {
+    "name": "linux_lmstudio_local_agents",
+    "purpose": "LM Studio app, local serving and model selection",
+    "category": "linux-development",
+    "default_components": []
+  },
+  {
+    "name": "linux_codex_claude_code_tts_announcements",
+    "purpose": "Standalone speech engine and coding-agent notifications",
+    "category": "linux-development",
+    "default_components": []
+  },
+  {
+    "name": "linux_luks_configuration",
+    "purpose": "Opt-in LUKS tools and encrypted-volume provisioning",
+    "category": "linux-desktop",
+    "default_components": []
   }
 ]
